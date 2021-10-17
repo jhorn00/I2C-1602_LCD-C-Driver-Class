@@ -100,7 +100,7 @@ void LCD_Thing::lcd_init()
     delayMicroseconds(500);
 }
 
-void LCD_Thing::writeStringToLine(std::string str, int line)
+void LCD_Thing::writeStringToLine(std::string str, int line) // Added by James Horn
 {
     if (line != LINE1 && line != LINE2)
     {
