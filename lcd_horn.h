@@ -1,3 +1,4 @@
+//LCD Driver class created by James Horn based on existing LCD I2C code.
 #pragma once
 #include <wiringPiI2C.h>
 #include <wiringPi.h>
@@ -23,7 +24,7 @@ class LCD_Thing
 {
     int fd;
     void lcd_init();
-    void lcd_byte(int bits, int mode, bool backlight);
+    void lcd_byte(int bits, int mode, bool backlight); //backlight toggle added by James Horn
     void lcd_toggle_enable(int bits);
 
 public:
@@ -31,8 +32,8 @@ public:
     void typeInt(int i);
     void typeFloat(float myFloat);
     void lcdLoc(int line);       //move cursor
-    void ClrLcd(bool backlight); // clr LCD return home
+    void ClrLcd(bool backlight); //clr LCD return home - backlight toggle added by James Horn
     void typeln(const char *s);
     void typeChar(char val);
-    void writeStringToLine(std::string str, int line);
+    void writeStringToLine(std::string str, int line); //added by James Horn
 };

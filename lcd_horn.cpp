@@ -1,5 +1,7 @@
+//Class function definitions for LCD driver class - James Horn
 #include "lcd_horn.h"
 
+//default (and only constructor)
 LCD_Thing::LCD_Thing()
 {
     fd = wiringPiI2CSetup(I2C_ADDR);
@@ -58,6 +60,7 @@ void LCD_Thing::lcd_byte(int bits, int mode, bool backlight) //Modified by James
     int bits_high;
     int bits_low;
     // uses the two half byte writes to LCD
+    // backlight will be on or off based on backlight parameter
     if (backlight)
     {
         // uses the two half byte writes to LCD
@@ -100,7 +103,8 @@ void LCD_Thing::lcd_init()
     delayMicroseconds(500);
 }
 
-void LCD_Thing::writeStringToLine(std::string str, int line) // Added by James Horn
+//print strings to the desired line - just makes things more convenient - Written by James Horn
+void LCD_Thing::writeStringToLine(std::string str, int line)
 {
     if (line != LINE1 && line != LINE2)
     {
